@@ -33,6 +33,7 @@ const Dashboard: NextPage = () => {
       const url = `https://ipfs.infura.io/ipfs/${image.path}`;
       const json = JSON.stringify({
         image: url,
+        description: 'NFT minted with https://nftforall.io',
       });
       const metadata = await client.add(json);
       updateFileUrl(url);
@@ -79,7 +80,7 @@ const Dashboard: NextPage = () => {
               icon={uploading ? faCompactDisc : faUpload}
               size="2x"
             />
-            <span>Upload Your Image</span>
+            <span>Select Your Image</span>
           </Stack>
         </UploadButton>
       </div>

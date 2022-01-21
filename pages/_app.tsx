@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { Providers } from '../Providers';
 import { Provider } from 'react-redux';
+import Script from 'next/script';
 
 // Styling
 import '../styles/imports.scss';
@@ -24,6 +25,19 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      {/* Google Analytics load after hydration */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=UA-217798151-2`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-217798151-2');
+        `}
+      </Script>
       {loaded ? (
         <Provider store={store}>
           <Providers>
