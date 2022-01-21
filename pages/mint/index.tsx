@@ -95,7 +95,7 @@ const Dashboard: NextPage = () => {
       </div>
       <div className="text-center my-5">
         {jsonUrl && (
-          <Button jumbo onClick={handleMintClick}>
+          <Button jumbo onClick={handleMintClick} connectedOnly>
             <Stack direction="horizontal" gap={3}>
               <FontAwesomeIcon
                 spin={minting}

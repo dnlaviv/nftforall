@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export enum Modal {
   WALLET = 'WALLET',
-  PASSPORT = 'PASSPORT',
 }
 
 export type ModalState = {
@@ -11,7 +10,6 @@ export type ModalState = {
 
 const generateInitialState = (): ModalState => ({
   [Modal.WALLET]: false,
-  [Modal.PASSPORT]: false,
 });
 
 const initialState = generateInitialState();

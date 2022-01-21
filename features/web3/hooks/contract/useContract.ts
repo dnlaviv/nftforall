@@ -5,7 +5,6 @@ import { getContract } from '../../../../utils/web3.utils';
 import { YOUGETANFT } from '../../../../core/abis/types/YOUGETANFT';
 import YOUGETANFT_ABI from '../../../../core/abis/YOUGETANFT.json';
 
-
 // returns null on errors
 function useContract<T extends any = Contract>(
   address: string | undefined,
@@ -32,5 +31,8 @@ function useContract<T extends any = Contract>(
 }
 
 export function useUGETANFTContract() {
-  return useContract<YOUGETANFT>('0xF2FF4Cf8931B0A788154F2881047b7566202C598', YOUGETANFT_ABI);
+  return useContract<YOUGETANFT>(
+    '0xfbe8cf5bc7d2a38f408b8ca7062acb9a58692f19',
+    YOUGETANFT_ABI,
+  );
 }

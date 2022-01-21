@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Stack } from 'react-bootstrap';
+import { useActiveWeb3React } from '../../features/web3/hooks/network/useEagerConnect';
+import { Modal } from '../../features/modal/modal.slice';
+import { useModalSlice } from '../../features/modal/hooks/useModalSlice';
 
 interface BaseButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -90,8 +93,7 @@ const ButtonHighlight = styled(BaseButton)`
 `;
 
 export const UploadButton = styled.label`
-
-  & > input[type="file"] {
+  & > input[type='file'] {
     display: none;
   }
   user-select: none;
@@ -122,10 +124,18 @@ export const UploadButton = styled.label`
 `;
 
 export const Button: React.FC<BaseButtonProps> = ({
+  onClick,
   children,
-  connectedOnly = true,
+  connectedOnly = false,
   ...props
 }) => {
+  const { account } = useActiveWeb3React();
+  const { setModal } = useModalSlice();
+  const handleClick = (e: any) => {
+    if (onClick) {
+      connectedOnly && !account ? setModal(Modal.WALLET, true) : onClick(e);
+    }
+  };
   const Btn = props.highlight
     ? ButtonHighlight
     : props.inverted
@@ -133,7 +143,7 @@ export const Button: React.FC<BaseButtonProps> = ({
     : BaseButton;
 
   return (
-    <Btn {...props}>
+    <Btn {...props} onClick={handleClick}>
       <Stack
         direction="horizontal"
         gap={2}
