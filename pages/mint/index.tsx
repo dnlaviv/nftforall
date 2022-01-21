@@ -69,7 +69,9 @@ const Dashboard: NextPage = () => {
   return (
     <PageLayout>
       <h1 className="text-center">
-        Mint any image as an <Highlight>NFT ;)</Highlight>
+        Mint any image as an
+        <br />
+        <Highlight>NFT FOR FREE</Highlight>
       </h1>
       <div className="text-center py-5">
         <UploadButton>

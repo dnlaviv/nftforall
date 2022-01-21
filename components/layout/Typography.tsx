@@ -14,6 +14,7 @@ export const Highlight = styled.span`
   display: inline-block;
   padding-bottom: 1px;
   // END
+  font-weight: 600;
 `;
 
 export const Text = styled.span<{
