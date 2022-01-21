@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700');
+@import url('https://use.fontawesome.com/releases/v5.7.0/css/all.css');
+
+// Bootstrap settings
+$enable-negative-margins: true;
+
+/* importing bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
